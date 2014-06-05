@@ -5,12 +5,15 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using mvc4_template.Models;
+using mvc4_template.ExceptionFilter;
 
 namespace mvc4_template.Controllers
 {
+      [ExceptionHandleAttribute]    
     public class CustomResponseController : ApiController
     {
         // GET api/customresponse
+
         public HttpResponseMessage Get()
         {
             return ControllerContext.Request.CreateResponse(HttpStatusCode.OK, new CustomResponse("This is a custom response"), "application/xml");
